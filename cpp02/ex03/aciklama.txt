@@ -1,0 +1,63 @@
+Değerler: A = (0, 0), B = (10, 30), C = (20, 0), P(10, 15)
+Sonuç: İçeride
+Açıklama:
+              B(10,30)
+                / \
+               /   \
+              /     \
+             /   P   \
+            /         \
+     A(0,0) ----------- C(20,0)
+
+
+Değerler: A = (0, 0), B = (10, 30), C = (20, 0), P(30, 15)
+Sonuç: Dışarıda
+Açıklama:
+              B(10,30)
+                / \
+               /   \
+              /     \
+             /       \      P
+            /         \
+     A(0,0) ----------- C(20,0)
+
+Çözüm:
+Üç köşenin koordinatları (x1, y1), (x2, y2) ve (x3, y3) olsun ve verilen
+P noktasının koordinatları (x, y) olsun
+
+Verilen üçgenin alanını, yani yukarıdaki diyagramdaki ABC üçgeninin alanını hesaplayın.
+
+			A Alanı = [ x1(y2 - y3) + x2(y3 - y1) + x3(y1-y2) ] / 2
+
+ABP üçgeninin alanını hesaplayın. Bunun için de aynı formülü kullanabiliriz. Bu alan A1 olsun.
+BCP üçgeninin alanını hesaplayın. Bu alan A2 olsun.
+ACP üçgeninin alanını hesaplayın. Bu alan A3 olsun.
+
+ABP Üçgeni(A1):
+
+             B(10,30)
+               /|
+              / |
+             /  |
+            /  .P(10,15)
+           / .
+    A(0,0) .
+
+BCP Üçgeni(A2):
+
+             B(10,30)
+            | \
+            |  \
+            |   \
+     (10,15)P.   \
+               .  \
+                 . C(20,0)
+
+ACP Üçgeni(A3):
+
+                . P(10,15)
+             .      .
+     A(0,0) ----------- C(20,0)
+
+Eğer P üçgenin içinde kalıyorsa, A1 + A2 + A3 A'ya eşit olmalıdır.
+Eğer P üçgenin dışında kalıyorsa, A1 + A2 + A3 A'dan büyük olmalıdır.

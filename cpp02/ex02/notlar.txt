@@ -1,0 +1,27 @@
+class
+{
+
+	Sınıf üyelerini "static" anahtar kelimesi kullanarak statik olarak tanımlayabiliriz.
+	Bir sınıf üyesini static olarak ilan ettiğimizde, sınıfın kaç tane nesnesi olursa olsun, statik üyenin
+	yalnızca bir kopyası vardır. Bir statik üye, sınıfın tüm nesneleri tarafından paylaşılır.
+	Tüm statik veriler, ilk nesne oluşturulduğunda sıfıra başlatılır, başka bir başlatma yoksa.
+	Onu sınıf tanımının içine koyamayız, ancak statik değişkeni tekrar bildirerek, hangi sınıfa ait olduğunu
+	belirlemek için kapsam çözünürlük operatörü (::) kullanarak dışarıda başlatılabilir.
+private:
+		static const int	bitStorage = 8;
+}
+
+	static const Fixed&	min( const Fixed &a, const Fixed &b );
+	static const Fixed&	max( const Fixed &a, const Fixed &b );
+
+	Statik Fonksiyon Üyeleri
+	Bir fonksiyon üyesini static olarak ilan ederek, onu sınıfın herhangi bir belirli nesnesinden bağımsız
+	hale getirirsiniz. Statik bir üye fonksiyon, sınıfın hiç nesnesi olmasa bile çağrılabilir ve statik
+	fonksiyonlara yalnızca sınıf adı ve kapsam çözünürlük operatörü (::) kullanılarak erişilir.
+
+	Statik bir üye fonksiyon, yalnızca statik veri üyesine, diğer statik üye fonksiyonlara ve sınıfın
+	dışındaki diğer fonksiyonlara erişebilir.
+
+	Statik üye fonksiyonları sınıf kapsamına sahiptir ve sınıfın this işaretçisine erişemezler. Bir statik
+	üye fonksiyonunu kullanarak sınıfın bazı nesnelerinin oluşturulup oluşturulmadığını belirleyebilirsiniz.
+
