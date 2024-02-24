@@ -27,10 +27,15 @@ class ClapTrap {
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+
+        std::string getName() const;
+        void setName(const std::string& name);
+        int getAttackDamage() const;
         void setAttackDamage(int amount);
         int getEnergyPoints() const;
+        void setEnergyPoints(int amount);
         int getHitPoints() const;
-        std::string getName() const;
+        void setHitPoints(int amount);
 };
 
 #endif

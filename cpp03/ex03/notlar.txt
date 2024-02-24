@@ -1,0 +1,18 @@
+Diamond Inheritance Nedir?
+
+Tanım: Bir programlama dilinde bir sınıfın, iki farklı yol aracılığıyla
+aynı üst sınıfa miras alındığı bir durumu ifade eder.
+
+Sorun: Alt sınıflar, aynı üst sınıfın üyelerine farklı yollarla erişirken
+çakışma ve belirsiz davranışlar ortaya çıkabilir.
+
+Örnek: Aşağıdaki miras yapısı elmas mirası örneğini göstermektedir:
+
+      A
+     / \
+    B   C
+     \ /
+      D
+
+Çözüm: OOP dillerde "virtual inheritance" kullanarak, aynı üst sınıfın
+yalnızca bir kopyasının alt sınıflar tarafından paylaşıldığı sağlanır.

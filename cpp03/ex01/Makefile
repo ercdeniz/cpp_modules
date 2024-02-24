@@ -6,7 +6,7 @@ RM			= rm -rf
 
 OBJDIR = .objFiles
 
-FILES		= main ClapTrap ScavTrap
+FILES		= main ClapTrap ScavTrap 
 
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))

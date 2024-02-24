@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap() : ClapTrap("")
 {
     std::cout << GREEN << "ScavTrap default constructor" << RESET << std::endl;
 }
@@ -47,11 +47,17 @@ void ScavTrap::guardGate()
 
 void ScavTrap::attack(std::string const &target)
 {
-    if (getHitPoints() > 0)
-    {
-        std::cout << YELLOW << "ScavTrap " << getName() << PURPLE << " attacks " << target << ", causing " << getAttackDamage() << " points of damage!" << RESET << std::endl;
-        setEnergyPoints(getEnergyPoints() - 1);
-    }
-    else
-        std::cout << BOLD PURPLE << "ScavTrap " << getName() << " can't attack. Not enough hit points or energy points!" << RESET << std::endl;
+    if(this->getAttackDamage() > 0){
+		if (this->getHitPoints() > 0){
+			std::cout << YELLOW << "ScavTrap " << this->getName() << PURPLE << " attacks " << target 
+				<< ", causing " << this->getAttackDamage() << " points of damage!" << RESET << std::endl;
+            this->setEnergyPoints(this->getEnergyPoints() - 1);
+		}
+		else
+			std::cout << BOLD PURPLE << "ScavTrap " << this->getName()
+				<< " can't attack. Not enough hit points or energy points!" << RESET << std::endl;
+	}
+	else
+		std::cout << BOLD PURPLE << "ScavTrap " << this->getName() 
+			<< " can't attack. Not enough attack damage!" << RESET << std::endl;
 }

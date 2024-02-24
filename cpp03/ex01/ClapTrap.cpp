@@ -23,11 +23,10 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
 void ClapTrap::attack(const std::string& target) {
     if(this->_attackDamage > 0){
         if (_hitPoints > 0 && _energyPoints > 0) {
-            std::cout << YELLOW << "ClapTrap " << _name << RED << " attacks " << target << PURPLE <<", causing " << _attackDamage << " points of damage!" << RESET << std::endl;
+            std::cout << YELLOW << "ClapTrap " << _name << PURPLE << " attacks " << target <<", causing " << _attackDamage << " points of damage!" << RESET << std::endl;
             _energyPoints--;
-        } else {
+        } else 
             std::cout << BOLD PURPLE << "ClapTrap " << _name << " can't attack. Not enough hit points or energy points!" << RESET << std::endl;
-        }
     }
 }
 
@@ -58,19 +57,34 @@ void ClapTrap::beRepaired(unsigned int amount) {
     }
 }
 
-void ClapTrap::setAttackDamage(int amount) {
-    _attackDamage = amount;
+std::string ClapTrap::getName() const {
+    return _name;
+}
+
+void ClapTrap::setName(const std::string& name) {
+    this->_name = name;
 }
 
 int ClapTrap::getEnergyPoints() const {
     return _energyPoints;
 }
 
+void ClapTrap::setEnergyPoints(int amount) {
+    this->_energyPoints = amount;
+}
+
 int ClapTrap::getHitPoints() const {
     return _hitPoints;
 }
 
-std::string ClapTrap::getName() const {
-    return _name;
+void ClapTrap::setHitPoints(int amount) {
+    this->_hitPoints = amount;
 }
 
+int ClapTrap::getAttackDamage() const {
+    return _attackDamage;
+}
+
+void ClapTrap::setAttackDamage(int amount) {
+    this->_attackDamage = amount;
+}

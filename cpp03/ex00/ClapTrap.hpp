@@ -18,7 +18,6 @@ class ClapTrap {
         int _hitPoints;
         int _energyPoints;
         int _attackDamage;
-
     public:
         ClapTrap(const std::string& name);
         ClapTrap(const ClapTrap& other);

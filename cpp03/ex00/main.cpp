@@ -7,7 +7,7 @@ int main() {
 	int clapAmount;
 	int trapAmount;
 
-	while (1) {
+	while (true) {
 		std::cout << CYAN << "Enter a damage amount(int): " << RESET;
 		std::cin >> clapAmount;
 		if (std::cin.fail() || std::cin.peek() != '\n' || clapAmount < 0){
@@ -44,5 +44,7 @@ int main() {
 			break;
 		}
 	}
+	delete clap;
+	delete trap;
 	return 0;
 }
