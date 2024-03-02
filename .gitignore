@@ -1,3 +1,9 @@
-*.pdf
-.vscode
+*.dSYM
+.objFiles
 .DS_Store
+.vscode
+*.o
+*.pdf
+*.a
+*.exe
+*.out
