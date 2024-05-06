@@ -37,5 +37,9 @@ fclean: clean
 	@rm -rf .vscode
 
 re: fclean all
+re0: f0 m0
+re1: f1 m1
+re2: f2 m2
+re3: f3 m3
 
-.PHONY: all clean fclean re m0 m1 m2 m3 f0 f1 f2 f3
+.PHONY: all clean fclean re m0 m1 m2 m3 f0 f1 f2 f3 re0 re1 re2 re3

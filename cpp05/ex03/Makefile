@@ -167,6 +167,7 @@ fclean: clean
 	@$(RM) $(NAME)
 	@$(RM) ../$(NAME)
 	@$(RM) *.shrubbery
+	@$(RM) ../*.shrubbery
 	@$(RM) *.dSYM
 	@echo "\033[92m    - Cleanup Over.✅\033[0m"
 	@sleep 0.3
