@@ -1,0 +1,8 @@
+.vscode
+.objFiles
+*.shrubbery
+*.dSYM
+bureaucrat
+form
+a_form
+intern
