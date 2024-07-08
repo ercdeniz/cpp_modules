@@ -1,4 +1,3 @@
-
 NAME		= replace
 
 CC			= c++

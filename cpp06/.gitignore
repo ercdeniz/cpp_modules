@@ -1,5 +1,3 @@
-.vscode
-*.dSYM
 scalarConvert
 serialize
 realType

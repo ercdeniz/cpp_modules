@@ -1,9 +1,5 @@
 .objFiles
-*.shrubbery
-*.dSYM
-*.o
-*.pdf
-bureaucrat
-form
-a_form
-intern
+BSP
+fixed_02
+fixed_01
+fixed_00

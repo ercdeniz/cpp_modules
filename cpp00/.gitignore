@@ -1,9 +1,4 @@
 .objFiles
-*.shrubbery
-*.dSYM
-*.o
-*.pdf
-bureaucrat
-form
-a_form
-intern
+myAwesomePhoneBook
+megaphone
+
