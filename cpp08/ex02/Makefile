@@ -1,4 +1,4 @@
-NAME			=	
+NAME			=	mutantStack
 
 SRC				=	main.cpp
 

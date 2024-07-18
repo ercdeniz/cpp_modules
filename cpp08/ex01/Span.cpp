@@ -40,52 +40,62 @@ const std::vector<int> &Span::getArr(void) const
 
 int Span::getRandomNumber(void) const
 {
-	return (rand() % MAXRAND);
+	return rand() % MAXRAND;
 }
 
 void Span::addNumber(const int number)
 {
-	if (_count >= _N)
+	if (_count < _N)
+	{
+		_arr.push_back(number);
+		_sortedSet.insert(number);
+		_count++;
+	}
+	else
 		throw FullArrayException();
-	_arr.push_back(number);
-	_count++;
 }
 
-void Span::sortArray()
+void Span::setSortArray(void)
 {
-	_sortedArr = _arr;
-	std::sort(_sortedArr.begin(), _sortedArr.end());
+	_sortedArr.clear();
+	_sortedArr.insert(_sortedArr.begin(), _sortedSet.begin(), _sortedSet.end());
 }
 
 int Span::shortestSpan(void)
 {
-	if (_count < 2)
-		throw SmallSizeException();
-	sortArray();
-	int diff = std::numeric_limits<int>::max();
-	std::pair<int, int> diffPair;
-	for (size_t i = 1; i < _sortedArr.size(); ++i)
+	if (!(_count < 2))
 	{
-		int currentDiff = _sortedArr[i] - _sortedArr[i - 1];
-		if (currentDiff < diff)
+		setSortArray();
+		int diff = std::numeric_limits<int>::max();
+		std::pair<int, int> diffPair;
+		for (size_t i = 1; i < _sortedArr.size(); ++i)
 		{
-			diff = currentDiff;
-			diffPair = std::make_pair(_sortedArr[i - 1], _sortedArr[i]);
+			int currentDiff = _sortedArr[i] - _sortedArr[i - 1];
+			if (currentDiff < diff)
+			{
+				diff = currentDiff;
+				diffPair = std::make_pair(_sortedArr[i - 1], _sortedArr[i]);
+			}
 		}
+		std::cout << "is between " << diffPair.second << " - " << diffPair.first << " = ";
+		return diff;
 	}
-	std::cout << "is between " << diffPair.second << " - " << diffPair.first << " = ";
-	return diff;
+	else
+		throw SmallSizeException();
 }
 
 int Span::longestSpan(void)
 {
-	if (_count < 2)
+	if (!(_count < 2))
+	{
+		setSortArray();
+		int min = _sortedArr[0];
+		int max = _sortedArr[_sortedArr.size() - 1];
+		std::cout << "is between " << max << " - " << min << " = ";
+		return max - min;
+	}
+	else
 		throw SmallSizeException();
-	sortArray();
-	int min = _sortedArr[0];
-	int max = _sortedArr[_sortedArr.size() - 1];
-	std::cout << "is between " << max << " - " << min << " = ";
-	return max - min;
 }
 
 const char *Span::FullArrayException::what() const throw()

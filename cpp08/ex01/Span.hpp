@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <limits>
+#include <set>
 
 // Colors
 #define RED     "\033[31m"
@@ -24,6 +25,7 @@ class Span
 		unsigned int _count;
 		std::vector<int> _arr;
 		std::vector<int> _sortedArr;
+		std::set<int> _sortedSet;
 		Span(void);
 
 	public:
@@ -32,11 +34,11 @@ class Span
 		~Span(void);
 		Span &operator=(const Span &other);
 
-		const std::vector<int> &getArr(void) const;
+		const std::vector<int> &getArr() const;
+		void setSortArray();
 
 		int getRandomNumber(void) const;
 		void addNumber(const int number);
-		void sortArray();
 		int shortestSpan(void);
 		int longestSpan(void);
 

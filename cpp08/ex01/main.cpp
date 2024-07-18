@@ -7,7 +7,7 @@ int main()
 		int len = 10;
 		Span span = Span(len);
 
-		srand(time(0));
+		srand(time(NULL));
 		for (int i = 0; i < len; i++)
 			span.addNumber(span.getRandomNumber());
 
