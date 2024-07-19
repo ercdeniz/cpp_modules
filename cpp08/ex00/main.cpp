@@ -1,10 +1,4 @@
 #include "easyfind.hpp"
-#include <vector>
-#include <deque>
-#include <list>
-#include <cstdlib>
-#include <ctime>
-#include <iomanip>
 
 template <typename T>
 T createAndFillContainer(int size)
@@ -13,6 +7,20 @@ T createAndFillContainer(int size)
     for (int i = 0; i < size; ++i)
         container.push_back(std::rand() % 10);
     return container;
+}
+
+template <typename T>
+std::string findResult(T& container, int searchValue)
+{
+    try
+    {
+        easyfind(container, searchValue);
+        return GREEN "Found" RESET;
+    }
+    catch (const std::exception&)
+    {
+        return RED "Not Found" RESET;
+    }
 }
 
 template <typename T>
@@ -28,27 +36,8 @@ void containerResult(const std::string& name, T& container, int searchValue1, in
     std::cout << CYAN "  Search Value      Result    " RESET << std::endl;
     std::cout << "+--------------+--------------+" << std::endl;
 
-    std::string result1, result2;
-
-    try
-    {
-        easyfind(container, searchValue1);
-        result1 = GREEN "Found" RESET;
-    }
-    catch (const std::exception&)
-    {
-        result1 = RED "Not Found" RESET;
-    }
-
-    try
-    {
-        easyfind(container, searchValue2);
-        result2 = GREEN "Found" RESET;
-    }
-    catch (const std::exception&)
-    {
-        result2 = RED "Not Found" RESET;
-    }
+    std::string result1 = findResult(container, searchValue1);
+    std::string result2 = findResult(container, searchValue2);
 
     std::cout << "|    " << std::setw(4) << searchValue1 << "      |" << std::setw(22) << result1 << "   |" << std::endl;
     std::cout << "+--------------+--------------+" << std::endl;

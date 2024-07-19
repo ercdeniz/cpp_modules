@@ -1,6 +1,10 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
+#include <deque>
+#include <list>
+#include <iomanip>
 
 // COLORS
 #define RED "\033[1;31m"

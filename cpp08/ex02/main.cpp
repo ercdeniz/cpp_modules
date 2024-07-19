@@ -6,10 +6,13 @@ int main()
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << BLUE << "Top: " << mstack.top() << std::endl;
+	std::cout << YELLOW << "Size: " << mstack.size() << std::endl;
 	mstack.pop();
+	std::cout << RED << "Pop function called" << std::endl;
 	std::cout << YELLOW << "Size: " << mstack.size() << std::endl;
 	mstack.push(3);
 	mstack.push(5);
+	std::cout << BLUE << "Top: " << mstack.top() << std::endl;
 	mstack.push(737);
 	mstack.push(0);
 
