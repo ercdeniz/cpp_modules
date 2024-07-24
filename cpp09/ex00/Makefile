@@ -1,4 +1,6 @@
 NAME			=	btc
+NAME_INPUT		=	./input.txt
+NAME_DATA		=	./data.csv
 
 SRC				=	main.cpp \
 					BitcoinExchange.cpp \
@@ -31,6 +33,8 @@ $(NAME): $(OBJDIR) $(OBJ)
 		echo $(NAME) >> $(GITIGNORE_PATH); \
 	fi
 	@$(CP) $(NAME) ../
+	@$(CP) $(NAME_INPUT) ../
+	@$(CP) $(NAME_DATA) ../
 	@clear
 	@$(ECHO) "\033[0;32m> $(NAME) Compiled\033[0m"
 
@@ -46,6 +50,8 @@ clean:
 fclean:	clean
 	@$(RM) $(NAME)
 	@$(RM) ../$(NAME)
+	@$(RM) ../$(NAME_INPUT)
+	@$(RM) ../$(NAME_DATA)
 	@$(ECHO) "\033[1;31m~> $(NAME) removed\033[0m 🧹"
 
 re: fclean all
