@@ -7,6 +7,7 @@ int main(int ac, char **av)
         try
         {
             BitcoinExchange exchange(av[1]);
+            exchange.readAndParseDataFile();
             exchange.readAndParseInputFile();
         }
         catch(const std::exception& e)
