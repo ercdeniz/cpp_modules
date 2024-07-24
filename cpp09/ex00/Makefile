@@ -1,6 +1,4 @@
 NAME			=	btc
-NAME_INPUT_FILE	=	input.txt
-NAME_DATA_FILE	=	data.csv
 
 SRC				=	main.cpp \
 					BitcoinExchange.cpp \
@@ -29,16 +27,10 @@ $(OBJDIR):
 
 $(NAME): $(OBJDIR) $(OBJ)
 	@$(CC) $(CXXFLAGS) -o $(NAME) $(OBJ)
-	@if ! grep -q "^$(NAME)$$" $(GITIGNORE_PATH) || \
-		! grep -q "^$(NAME_INPUT_FILE)$$" $(GITIGNORE_PATH) || \
-		! grep -q "^$(NAME_DATA_FILE)$$" $(GITIGNORE_PATH); then \
-		(grep -q "^$(NAME)$$" $(GITIGNORE_PATH) || echo "$(NAME)" >> $(GITIGNORE_PATH)) && \
-		(grep -q "^$(NAME_INPUT_FILE)$$" $(GITIGNORE_PATH) || echo "$(NAME_INPUT_FILE)" >> $(GITIGNORE_PATH)) && \
-		(grep -q "^$(NAME_DATA_FILE)$$" $(GITIGNORE_PATH) || echo "$(NAME_DATA_FILE)" >> $(GITIGNORE_PATH)); \
+	@if [ "$(GITIGNORE_EXISTS)" = "no" ]; then \
+		echo $(NAME) >> $(GITIGNORE_PATH); \
 	fi
 	@$(CP) $(NAME) ../
-	@$(CP) $(NAME_INPUT_FILE) ../
-	@$(CP) $(NAME_DATA_FILE) ../
 	@clear
 	@$(ECHO) "\033[0;32m> $(NAME) Compiled\033[0m"
 
@@ -54,8 +46,6 @@ clean:
 fclean:	clean
 	@$(RM) $(NAME)
 	@$(RM) ../$(NAME)
-	@$(RM) ../$(NAME_INPUT_FILE)
-	@$(RM) ../$(NAME_DATA_FILE)
 	@$(ECHO) "\033[1;31m~> $(NAME) removed\033[0m 🧹"
 
 re: fclean all

@@ -1,6 +1,7 @@
-NAME			=	
+NAME			=	RPN
 
-SRC				=	main.cpp
+SRC				=	main.cpp \
+					RPN.cpp
 
 
 SRCDIR			=	./
