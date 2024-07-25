@@ -1,7 +1,8 @@
-NAME			=	
+NAME			=	PmergeMe
 
-SRC				=	main.cpp
-
+SRC				=	main.cpp \
+					PmergeMe.cpp \
+					utils.cpp
 
 SRCDIR			=	./
 OBJDIR			=	./.objFiles

@@ -28,13 +28,14 @@
 #define PRINTGREEN(value) std::cout << GREEN << value << RESET << std::endl
 #define PRINTRED(value) std::cout << RED << value << RESET << std::endl
 
+// ENUMS
 enum ValidationResult
 {
+    VALID,
     INVALIDDATE,
     NOTDIGIT,
     OUTOFBOUNDS,
-    NOTPOSITIVE,
-    VALID
+    NOTPOSITIVE
 };
 
 class BitcoinExchange
