@@ -20,13 +20,11 @@ T fordJhonson(T &left, T &right)
 			++itRight;
 		}
 	}
-
 	while (itLeft != left.end())
 	{
 		result.push_back(*itLeft);
 		++itLeft;
 	}
-
 	while (itRight != right.end())
 	{
 		result.push_back(*itRight);
