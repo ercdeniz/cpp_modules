@@ -30,7 +30,7 @@ int main(int ac, char **av)
 					return 1;
 				default:
 					std::vector<unsigned int> arr = p.getArr();
-					p.mergeSort(arr);
+					p.fordJohnsonSort(arr.begin(), arr.end());
 					for (size_t i = 0; i < arr.size(); i++)
 						std::cout << arr[i] << " ";
 			}

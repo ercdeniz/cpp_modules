@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <cctype>
 #include <sstream>
+#include <iterator>
 
 // COLORS
 #define RED "\033[31m"
@@ -50,8 +51,8 @@ class PmergeMe
         std::vector<unsigned int> getArr() const { return _arr; }
         ValidationResult argCheck(std::vector<std::string> args);
 
-        template <typename T>
-        void mergeSort(T &arr);
+        template<typename Iterator>
+        void fordJohnsonSort(Iterator begin, Iterator end);
 
         //UTILS
         bool isDigit(const std::string &str);
