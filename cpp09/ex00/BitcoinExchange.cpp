@@ -54,7 +54,7 @@ void BitcoinExchange::dataCalculator(std::pair<std::string, std::string> mapline
 	if (t == -1)
 		throw std::runtime_error("failed to convert time");
 
-	double diff = difftime(t, _thresholdDate) / (60 * 60 * 24);
+	double diff = difftime(t, _thresholdDate) / (86400.0); // (60 * 60 * 24)
 	if (diff < 0)
 		throw std::runtime_error("Invalid date");
 	std::pair<int, float> data = std::make_pair(static_cast<int>(diff), atof(mapline.second.c_str()));

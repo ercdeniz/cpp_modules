@@ -16,7 +16,7 @@ OBJ				=	$(addprefix $(OBJDIR)/, $(addsuffix .o, $(BASE)))
 BASE			=	$(basename $(notdir $(SRC)))
 
 CC				=	c++
-CXXFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS		=	-Wall -Wextra -Werror -std=c++98 -g
 RM				=	rm -rf
 CP				=	cp
 ECHO			=	echo

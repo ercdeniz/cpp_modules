@@ -9,7 +9,7 @@ int main(int ac, char **av)
 			PmergeMe p;
 			if (!p.checkAndSort(ac, av))
 				return 1;
-
+// süre yok alooooo
 			std::cout << CYAN << "Original vector: ";
 			std::vector<std::string> inputArgs = p.getInputArgs();
 			PIRINTARR(inputArgs, BLUE);

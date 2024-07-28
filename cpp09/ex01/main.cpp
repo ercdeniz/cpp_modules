@@ -6,6 +6,7 @@ int main(int ac, char **av)
     {
         try
         {
+            // sadece rakam olcak
             RPN rpn(av[1]);
             rpn.calculateRPN();
             return 0;

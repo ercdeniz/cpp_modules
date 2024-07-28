@@ -22,8 +22,8 @@ ValidationResult  BitcoinExchange::isValidDateAndValue(const std::pair<std::stri
 	std::string parts[4];
 	splitDate(mapline.first, parts, '-');
 	parts[3] = mapline.second;
-	for (int i = 0; i < 4; i++)
-		parts[i] = trim(parts[i]);
+	if (parts[0].size() != 4 || parts[1].size() > 2 || parts[2].size() > 2)
+		return INVALIDDATE;
 	try
 	{
 		std::tm pdate = parseDate(mapline.first);
@@ -40,8 +40,9 @@ ValidationResult  BitcoinExchange::isValidDateAndValue(const std::pair<std::stri
 		return NOTDIGIT;
 	if (parts[3][0] == '-')
 		return NOTPOSITIVE;
+	
 	float value = atof(parts[3].c_str());
-	if (parts[3].size() > 4 || 1000 < value || value < 0)
+	if (value > 1000 || value < 0)
 		return OUTOFBOUNDS;
 	return VALID;
 }
