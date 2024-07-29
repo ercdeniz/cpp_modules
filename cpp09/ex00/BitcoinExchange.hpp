@@ -1,9 +1,13 @@
 #pragma once
 
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 #include <set>
+#include <ctime>
 #include <sstream>
+#include <utility>
+#include <cstdlib>
 
 // COLORS
 #define RED "\033[31m"

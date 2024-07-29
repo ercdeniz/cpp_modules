@@ -3,6 +3,10 @@
 #include <iostream>
 #include <stack>
 #include <sstream>
+#include <string>
+#include <cstdlib>
+#include <climits>
+#include <sstream>
 
 // COLORS
 #define RED "\033[31m"
