@@ -5,12 +5,12 @@ PmergeMe p;
 template <typename Iterator>
 double stopWatch(Iterator begin, Iterator end)
 {
-	std::clock_t start;
-	std::clock_t stop;
+	clock_t start;
+	clock_t stop;
 
-	start = std::clock();
+	start = clock();
 	p.fordJohnsonSort(begin, end);
-	stop = std::clock();
+	stop = clock();
 	return static_cast<double>(stop - start) / CLOCKS_PER_SEC * 1000;
 }
 

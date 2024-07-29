@@ -4,8 +4,6 @@
 #include <algorithm>
 #include <vector>
 #include <deque>
-#include <iterator>
-#include <cctype>
 #include <sstream>
 
 // COLORS

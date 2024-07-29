@@ -69,7 +69,10 @@ void RPN::calculateRPN()
 		else {
 			char* endptr;
 			long value = std::strtol(token.c_str(), &endptr, 10);
-			if (*endptr != '\0' || value > 9 || value < -9 || value > INT_MAX || value < INT_MIN)
+			if (*endptr != '\0' || value > 9 || value < -9
+				|| value > std::numeric_limits<int>::max()
+				|| value < std::numeric_limits<int>::min()
+				)
 				throw std::runtime_error(std::string("Invalid token: ") + token);
 			_stack.push(static_cast<int>(value));
 		}

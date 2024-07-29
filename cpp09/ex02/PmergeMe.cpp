@@ -12,8 +12,10 @@ PmergeMe::PmergeMe(const PmergeMe &other)
 PmergeMe &PmergeMe::operator=(const PmergeMe &other)
 {
 	if (this != &other)
+	{
 		this->_arr = other._arr;
 		this->_inputArgs = other._inputArgs;
+	}
 	return *this;
 }
 
