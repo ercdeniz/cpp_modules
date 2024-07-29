@@ -72,7 +72,8 @@ bool PmergeMe::checkAndSort(int ac, char **av)
 		case NEGATIVENUMBER:
 			PRINTRED("Error: Negative number");
 			return false;
-		case VALID:
-			return true;
+		default:
+			break;
 	}
+	return true;
 }
