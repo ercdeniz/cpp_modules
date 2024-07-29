@@ -24,7 +24,7 @@
 #define EXCEPTERROR                                               \
 	std::cerr << RED "Error: " << e.what() << RESET << std::endl; \
 	return 1;
-#define PIRINTARR(arr, color)                \
+#define PRINTARR(arr, color)                \
 	for (size_t i = 0; i < arr.size(); i++)  \
 		std::cout << color << arr[i] << " "; \
 	std::cout << RESET << std::endl
@@ -56,7 +56,7 @@ class PmergeMe
 		// GETTERS
 		std::vector<std::string> getInputArgs() const;
 		std::vector<unsigned int> getArr() const;
-		
+
 		// MEMBER FUNCTIONS
 		ValidationResult argCheck(std::vector<std::string> args);
 		bool checkAndSort(int ac, char **av);

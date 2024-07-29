@@ -17,6 +17,19 @@ static void splitDate(const std::string &date, std::string result[3], char delim
 		result[partIndex] = date.substr(start);
 }
 
+float BitcoinExchange::strtod(const std::string &str)
+{
+	std::stringstream ss(str);
+
+	double val;
+	ss >> val;
+	if (ss.fail())
+		throw std::runtime_error("failed to convert string to double");
+	if (val < 0 || val > 1000)
+		throw std::runtime_error("out of bounds");
+	return static_cast<float>(val);
+}
+
 ValidationResult  BitcoinExchange::isValidDateAndValue(const std::pair<std::string, std::string> mapline)
 {
 	std::string parts[4];
@@ -40,10 +53,15 @@ ValidationResult  BitcoinExchange::isValidDateAndValue(const std::pair<std::stri
 		return NOTDIGIT;
 	if (parts[3][0] == '-')
 		return NOTPOSITIVE;
-	
-	float value = atof(parts[3].c_str());
-	if (value > 1000 || value < 0)
+
+	try
+	{
+		strtod(parts[3]);
+	}
+	catch (const std::runtime_error &e)
+	{
 		return OUTOFBOUNDS;
+	}
 	return VALID;
 }
 
@@ -88,6 +106,6 @@ int BitcoinExchange::calcualteDayDiff(std::string date, time_t thresholdDate)
 	time_t t = mktime(&tm);
 	if (t == -1)
 		throw std::runtime_error("failed to convert time");
-	double diff = difftime(t, thresholdDate) / (60 * 60 * 24);
+	double diff = difftime(t, thresholdDate) / (86400.0); // (60 * 60 * 24) seconds in a day
 	return static_cast<int>(diff);
 }

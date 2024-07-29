@@ -3,9 +3,6 @@
 #include <iostream>
 #include <stack>
 #include <sstream>
-#include <string>
-#include <cstdlib>
-#include <climits>
 
 // COLORS
 #define RED "\033[31m"
@@ -18,28 +15,31 @@
 
 // MACROS
 #define USAGEERROR                                                                  \
-    std::cerr << RED "Usage: " YELLOW << av[0] << " \"expression\"" RESET << std::endl; \
-    return 1;
+	std::cerr << RED "Usage: " YELLOW << av[0] << " \"expression\"" RESET << std::endl; \
+	return 1;
 #define EXCEPTERROR                                               \
-    std::cerr << RED "Error: " << e.what() << RESET << std::endl; \
-    return 1;
+	std::cerr << RED "Error: " << e.what() << RESET << std::endl;
 #define PRINTGREEN(value) std::cout << GREEN << value << RESET << std::endl
 #define PRINTRED(value) std::cout << RED << value << RESET << std::endl
 
 class RPN
 {
-    private:
-        RPN();
-        std::string _input;
-        std::stack<int> _stack;
+	private:
+		RPN();
+		std::string _input;
+		std::stack<int> _stack;
 
-    public:
-        RPN(std::string input);
-        ~RPN();
-        RPN(const RPN &other);
-        RPN &operator=(const RPN &other);
+	public:
+		RPN(std::string input);
+		~RPN();
+		RPN(const RPN &other);
+		RPN &operator=(const RPN &other);
 
-        bool isOperator(const std::string &token) const;
-        int applyOperation(int left, int right, const std::string &op);
-        void calculateRPN();
+		// Getters
+		std::stack<int> getStack() const;
+
+		// Methods
+		bool isOperator(const std::string &token) const;
+		int applyOperation(int left, int right, const std::string &op);
+		void calculateRPN();
 };

@@ -103,22 +103,29 @@ void BitcoinExchange::inputCalculator(std::pair<std::string, std::string> maplin
 			break;
 		default:
 			int dayDiff = calcualteDayDiff(mapline.first, _thresholdDate);
-			std::string amount;
+			double amount = 0;
 			for (std::set<std::pair<int, float> >::iterator it = _data.begin(); it != _data.end(); ++it)
 			{
 				if (it->first == dayDiff)
 				{
-					amount = toStr(it->second * atof(mapline.second.c_str()));
+					amount = it->second * atof(mapline.second.c_str());
 					break;
 				}
 				else if (it->first > dayDiff)
 				{
 					it--;
-					amount = toStr(it->second * atof(mapline.second.c_str()));
+					amount = it->second * atof(mapline.second.c_str());
+					break;
+				}
+				else if (it == --_data.end())
+				{
+					amount = it->second * atof(mapline.second.c_str());
 					break;
 				}
 			}
-			PRINTGREEN("On " + mapline.first + ", " + mapline.second + " btc is worth " + amount + " usd");
+			std::ostringstream out;
+			out << std::setprecision(std::numeric_limits<float>::digits10 + 1) << amount;
+			PRINTGREEN("On " + mapline.first + ", " + mapline.second + " btc is worth " + out.str() + " usd");
 	}
 }
 
@@ -132,7 +139,8 @@ void BitcoinExchange::readAndParseInputFile()
 
 	std::string line;
 	std::getline(file, line); // skip first line
-
+	if (line != "date | value")
+		throw std::ios_base::failure("Invalid input format");
 	while (std::getline(file, line))
 	{
 		std::pair<std::string, std::string> mapline;

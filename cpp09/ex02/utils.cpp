@@ -6,16 +6,16 @@ bool PmergeMe::isDigit(const std::string &str)
 	strtol(str.c_str(), &endptr, 10);
 	if (*endptr != '\0')
 		return false;
-    return true;
+	return true;
 }
 
 std::vector<std::string> PmergeMe::split(const std::string& str) {
-    std::vector<std::string> result;
-    std::istringstream iss(str);
-    std::string token;
-    while (iss >> token)
-        result.push_back(token);
-    return result;
+	std::vector<std::string> result;
+	std::istringstream iss(str);
+	std::string token;
+	while (iss >> token)
+		result.push_back(token);
+	return result;
 }
 
 std::string PmergeMe::toStr(int value)
